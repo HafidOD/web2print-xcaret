@@ -17,26 +17,26 @@ function classNames(...classes) {
 export default function NavbarAdmin({ lang, langparam }) {
   // console.log(lang);
   const navigation = [
-    { name: `${lang.navbar.home}`, href: `/${langparam}/admin` },
+    { name: `${lang.navbar.home}`, href: `/admin` },
     {
       name: `${lang.navbar.admin.properties}`,
-      href: `/${langparam}/admin/properties`,
+      href: `/admin/properties`,
     },
-    { name: `${lang.navbar.brands}`, href: `/${langparam}/admin/enterprises` },
+    { name: `${lang.navbar.brands}`, href: `/admin/enterprises` },
     {
       name: `${lang.navbar.admin.addresses}`,
-      href: `/${langparam}/admin/addresses`,
+      href: `/admin/addresses`,
     },
-    { name: `${lang.navbar.admin.users}`, href: `/${langparam}/admin/users` },
+    { name: `${lang.navbar.admin.users}`, href: `/admin/users` },
     {
       name: `${lang.navbar.admin.divisions}`,
-      href: `/${langparam}/admin/categories`,
+      href: `/admin/categories`,
     },
     {
       name: `${lang.navbar.admin.items}`,
-      href: `/${langparam}/admin/products`,
+      href: `/admin/products`,
     },
-    { name: "Dashboard", href: `/${langparam}/dashboard` },
+    { name: "Dashboard", href: `/dashboard` },
   ];
   return (
     <Disclosure as="nav" className="bg-primaryBlue">
@@ -56,29 +56,19 @@ export default function NavbarAdmin({ lang, langparam }) {
                     <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
-                <div className="relative block px-3 py-1 ml-3 bg-white rounded-full md:hidden text-primaryBlue">
-                  {langparam === "en" ? (
-                    <a href="/es/admin" className="flex items-center font-bold">
+                {/* <div className="relative block px-3 py-1 ml-3 bg-white rounded-full md:hidden text-primaryBlue">
+                    <a href="/admin" className="flex items-center font-bold">
                       es
                       <ChevronRightIcon
                         className="w-4 h-4"
                         aria-hidden="true"
                       />
                     </a>
-                  ) : (
-                    <a href="/en/admin" className="flex items-center font-bold">
-                      en
-                      <ChevronRightIcon
-                        className="w-4 h-4"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  )}
-                </div>
+                </div> */}
               </div>
               <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                 <div className="flex items-center flex-shrink-0">
-                  <Link href={`/${langparam}/admin`}>
+                  <Link href={`/admin`}>
                     <Image
                       className=""
                       src="/images/logos/logo_regio_white.png"
@@ -110,7 +100,7 @@ export default function NavbarAdmin({ lang, langparam }) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div className="relative hidden px-3 py-1 ml-3 bg-white rounded-full md:block text-primaryBlue">
+                {/* <div className="relative hidden px-3 py-1 ml-3 bg-white rounded-full md:block text-primaryBlue">
                   {langparam === "en" ? (
                     <a href="/es/admin" className="flex items-center font-bold">
                       es
@@ -128,13 +118,13 @@ export default function NavbarAdmin({ lang, langparam }) {
                       />
                     </a>
                   )}
-                </div>
+                </div> */}
                 <div className="relative flex justify-center ml-3">
                   <button
                     onClick={() =>
                       signOut({ redirect: false }).then(() => {
                         window.location.href =
-                          "https://web2print.gruporegio.mx/en/";
+                          "https://web2print.gruporegio.mx/";
                       })
                     }
                     type="button"

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("../fonts/avenir.css");
+
 html,
 body,
 :root {
@@ -39,10 +41,10 @@ body {
     rgb(var(--background-start-rgb));
 } */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "avenir-roman", Helvetica, sans-serif;
 }
 h1,
 h2,
 h3 {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "avenir-roman", Times, serif;
 }

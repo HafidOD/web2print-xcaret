@@ -20,10 +20,10 @@ function classNames(...classes) {
 export default function Navbar({ lang, paramslang }) {
   // console.log(lang);
   const navigation = [
-    { name: `${lang.navbar.brands}`, href: `/${paramslang}/dashboard` },
+    { name: `${lang.navbar.brands}`, href: `/dashboard` },
     {
       name: `${lang.navbar.dashboard.orders}`,
-      href: `/${paramslang}/dashboard/pedidos`,
+      href: `/dashboard/pedidos`,
     },
   ];
   const removeAll = useCart((state) => state.removeAll);
@@ -31,7 +31,7 @@ export default function Navbar({ lang, paramslang }) {
   async function logout() {
     await removeAll();
     signOut({ redirect: false }).then(() => {
-      window.location.href = "https://web2printxcaret.gruporegio.mx/en/";
+      window.location.href = "https://web2printxcaret.gruporegio.mx/";
     });
     // signOut({
     //   callbackUrl: "https://web2print.gruporegio.mx/",
@@ -56,36 +56,20 @@ export default function Navbar({ lang, paramslang }) {
                     <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
-                <div className="relative block px-3 py-1 ml-3 bg-white rounded-full md:hidden text-primaryBlue">
-                  {paramslang === "en" ? (
-                    <a
-                      href="/es/dashboard"
-                      className="flex items-center font-bold"
-                    >
-                      es
-                      <ChevronRightIcon
-                        className="w-4 h-4"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  ) : (
-                    <a
-                      href="/en/dashboard"
-                      className="flex items-center font-bold"
-                    >
-                      en
-                      <ChevronRightIcon
-                        className="w-4 h-4"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  )}
-                </div>
+                {/* <div className="relative block px-3 py-1 ml-3 bg-white rounded-full md:hidden text-primaryBlue">
+                  <a
+                    href="/es/dashboard"
+                    className="flex items-center font-bold"
+                  >
+                    es
+                    <ChevronRightIcon className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div> */}
               </div>
 
               <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                 <div className="flex items-center flex-shrink-0">
-                  <Link href={`/${paramslang}/dashboard/`}>
+                  <Link href={`/dashboard/`}>
                     <Image
                       className=""
                       src="/images/logos/logo_regio_white.png"
@@ -118,7 +102,7 @@ export default function Navbar({ lang, paramslang }) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <IconCart paramslang={paramslang}></IconCart>
+                <IconCart></IconCart>
                 {/* <div className="relative ml-3">
                       <img
                         className="w-8 h-8 rounded-full"
@@ -126,31 +110,12 @@ export default function Navbar({ lang, paramslang }) {
                         alt=""
                       ></img>
                 </div> */}
-                <div className="relative hidden px-3 py-1 ml-3 bg-white rounded-full md:block text-primaryBlue">
-                  {paramslang === "en" ? (
-                    <a
-                      href="/es/dashboard"
-                      className="flex items-center font-bold"
-                    >
-                      es
-                      <ChevronRightIcon
-                        className="w-4 h-4"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  ) : (
-                    <a
-                      href="/en/dashboard"
-                      className="flex items-center font-bold"
-                    >
-                      en
-                      <ChevronRightIcon
-                        className="w-4 h-4"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  )}
-                </div>
+                {/* <div className="relative hidden px-3 py-1 ml-3 bg-white rounded-full md:block text-primaryBlue">
+                  <a href="/dashboard" className="flex items-center font-bold">
+                    es
+                    <ChevronRightIcon className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div> */}
 
                 <div className="relative flex justify-center ml-3">
                   <button

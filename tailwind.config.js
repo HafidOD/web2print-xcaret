@@ -6,9 +6,11 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    // fontFamily: {
-    //   arial: ["Arial", "Helvetica", "sans-serif"],
-    // },
+    fontFamily: {
+      "avenir-black": ["avenir-black", "sans"],
+      "avenir-medium": ["avenir-medium", "sans"],
+      "avenir-roman": ["avenir-roman", "sans"],
+    },
     extend: {
       colors: {
         primaryBlue: "#193761",

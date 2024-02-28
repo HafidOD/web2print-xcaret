@@ -27,7 +27,7 @@ export default function SummaryProducts({ paramslang }) {
       {items.length === 0 && (
         <p className="mb-2 text-md text-primaryBlue">
           {paramslang.products["no-products-cart"]}
-          No hay productos en el carrito
+          {/* No hay productos en el carrito */}
         </p>
       )}
       <ul role="list" className="divide-y divide-gray-100">

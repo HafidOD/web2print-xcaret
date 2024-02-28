@@ -94,9 +94,6 @@ export default function FormLogin({ lang, paramslang }) {
                 <span>{lang.login.login}</span>
               )}
             </button>
-            <a href={`/${paramslang}/register`} className="text-primaryBlue">
-              {lang.login.register}
-            </a>
           </div>
         </form>
       </div>

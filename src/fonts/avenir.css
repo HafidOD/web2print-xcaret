@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "avenir-black";
+  src: url("Avenir-Black.ttf") format("truetype");
+  font-weight: bold;
+  /* font-style: normal; */
+  font-display: swap;
+}
+@font-face {
+  font-family: "avenir-medium";
+  src: url("Avenir-Medium.ttf") format("truetype");
+  font-weight: medium;
+  /* font-style: normal; */
+  font-display: swap;
+}
+@font-face {
+  font-family: "avenir-roman";
+  src: url("Avenir-Roman.ttf") format("truetype");
+  /* font-weight: bold;
+    font-style: normal; */
+  font-display: swap;
+}

@@ -17,7 +17,7 @@ export default function IconCart({ paramslang }) {
   }
   return (
     <Link
-      href={`/${paramslang}/dashboard/cart`}
+      href={`/dashboard/cart`}
       className="flow-root px-3 py-1 ml-4 bg-white rounded-full lg:ml-6"
     >
       <div className="flex items-center group">

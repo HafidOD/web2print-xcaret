@@ -86,7 +86,7 @@ export async function POST(req) {
         // Agrega cada adjunto al array
         mailOptions.attachments.push({
           filename: `tarjeta_${producto.imgTarjeta}.png`,
-          path: `/var/www/web2print.gruporegio.mx/web2print/public/images/tar/${producto.imgTarjeta}`,
+          path: `/var/www/web2printxcaret.gruporegio.mx/web2print-xcaret/public/images/tar/${producto.imgTarjeta}`,
           // path: `${NEXT_URL_BASE}/images/tar/${producto.imgTarjeta}`,
           cid: producto.imgTarjeta,
         });
@@ -434,7 +434,7 @@ function generateEmailContent(
     </table>
     <br />`;
 
-  content += `<br /><br /><br /><a href='${process.env.NEXT_URL_BASE}/${items.lang}/sale/${saleId}' style='text-decoration: none; background-color: #193761; color: white; padding: 10px; border-radius: 8px;'>${lang.order["download-pdf"]}</a><br /><br /><br />`;
+  content += `<br /><br /><br /><a href='${process.env.NEXT_URL_BASE}/sale/${saleId}' style='text-decoration: none; background-color: #193761; color: white; padding: 10px; border-radius: 8px;'>${lang.order["download-pdf"]}</a><br /><br /><br />`;
   content += `<table style="width: 100%; border-collapse: collapse">
       <thead>
         <tr>
@@ -467,16 +467,9 @@ function generateEmailContent(
             w: gruporegio.mx
           </th>
           <th style="width: 20%; border: none; padding: 8px">
-          ${
-            property.logoCala != 0
-              ? `<img src="${process.env.NEXT_URL_BASE}/images/logos/Logo-CALA.png" alt="" width="120" />`
-              : ""
-          }
           </th>
           <th style="width: 15%; border: none; padding: 8px">
-            <img src="${
-              process.env.NEXT_URL_BASE
-            }/images/logos/fsc.png" alt="" width="80" />
+            <img src="${process.env.NEXT_URL_BASE}/images/logos/fsc.png" alt="" width="80" />
           </th>
         </tr>
       </thead>

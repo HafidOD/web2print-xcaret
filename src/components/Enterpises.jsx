@@ -4,7 +4,7 @@
 // import Link from "next/link";
 // import { useState } from "react";
 
-export default function Enterpises({ enterprises, paramslang }) {
+export default function Enterpises({ enterprises }) {
   // console.log(enterprises);
   return (
     // <div className="grid gap-3 lg:grid-cols-3 justify-items-center">
@@ -21,8 +21,8 @@ export default function Enterpises({ enterprises, paramslang }) {
               <a
                 href={
                   catparent.length == 1
-                    ? `/${paramslang}/dashboard/${enterprise.id}/${enterprise.categoryParent}/${enterprise.categories[0].id}/${enterprise.categoryParent}`
-                    : `/${paramslang}/dashboard/${enterprise.id}/`
+                    ? `/dashboard/${enterprise.id}/${enterprise.categoryParent}/${enterprise.categories[0].id}/${enterprise.categoryParent}`
+                    : `/dashboard/${enterprise.id}/`
                 }
                 className="w-full px-4 lg:w-1/3"
                 key={enterprise.id}
@@ -46,8 +46,8 @@ export default function Enterpises({ enterprises, paramslang }) {
               <a
                 href={
                   catparent.length == 1
-                    ? `/${paramslang}/dashboard/${enterprise.id}/${enterprise.categoryParent}/`
-                    : `/${paramslang}/dashboard/${enterprise.id}/`
+                    ? `/dashboard/${enterprise.id}/${enterprise.categoryParent}/`
+                    : `/dashboard/${enterprise.id}/`
                 }
                 className="w-full px-4 lg:w-1/3"
                 key={enterprise.id}

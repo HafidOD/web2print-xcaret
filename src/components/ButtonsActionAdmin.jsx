@@ -2,7 +2,7 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 
-export default function ButtonsActionAdmin({ itemURL, id, paramslang }) {
+export default function ButtonsActionAdmin({ itemURL, id }) {
   const URL = process.env.NEXT_PUBLIC_API_URL;
   const router = useRouter();
   // console.log(itemURL, id);
@@ -12,7 +12,7 @@ export default function ButtonsActionAdmin({ itemURL, id, paramslang }) {
     });
     // console.log(res);
     if (res.ok) {
-      router.push(`/${paramslang}/admin/${itemURL}`);
+      router.push(`/admin/${itemURL}`);
       router.refresh();
     }
     // if (res.status === 204) {
@@ -22,7 +22,7 @@ export default function ButtonsActionAdmin({ itemURL, id, paramslang }) {
     <div className="flex">
       <div className="flex items-center justify-center ml-3 ">
         <a
-          href={`/${paramslang}/admin/${itemURL}/edit/${id}`}
+          href={`/admin/${itemURL}/edit/${id}`}
           className="text-sm text-secondGray"
         >
           <PencilSquareIcon className="w-5 h-5" aria-hidden="true" />
