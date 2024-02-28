@@ -675,7 +675,7 @@ export default function ContentForm({ product, user, params }) {
           {addItem ? (
             <div className="w-full">
               <a
-                href={`/${params.lang}/dashboard/${params.enterpriseId}/${params.categoryParentId}`}
+                href={`/dashboard/${params.enterpriseId}/${params.categoryParentId}`}
                 className="block w-full px-4 py-2 mt-4 text-xs text-center text-white shadow bg-primaryBlue md:text-sm"
               >
                 Seguir comprando
