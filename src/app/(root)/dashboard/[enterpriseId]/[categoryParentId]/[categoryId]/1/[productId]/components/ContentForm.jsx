@@ -390,18 +390,17 @@ export default function ContentForm({ product, user, params }) {
                     Ctra. Chetumal - Puerto Juárez, Km 282, Rancho Xcaret,
                     Quintana Roo, C.P.77710
                   </option>
-                  <option value="Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780">
-                    Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2,
-                    Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780
+                  <option value="Ctra. Chetumal - Puerto Juárez, 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, C.P. 77780">
+                    Ctra. Chetumal - Puerto Juárez, 240, Locales 1 & 2, Módulo
+                    B, Xel-Há, Quintana Roo, C.P. 77780
                   </option>
-                  <option value="Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710">
-                    Carretera Chetumal Puerto Juárez, Km 282, Municipio de
-                    Solidaridad, Playa del Carmen, Quintana Roo, México,
-                    C.P.77710
+                  <option value="Ctra Chetumal Puerto Juárez, Km 282, Quintana Roo, C.P.77710.">
+                    Ctra Chetumal Puerto Juárez, Km 282, Quintana Roo,
+                    C.P.77710.
                   </option>
-                  <option value="Carretera Federal Cancún Puerto Morelos No. exterior Mz 01 No interior l 1-02005 Puerto Morelos, México, C.P. 77580">
-                    Carretera Federal Cancún Puerto Morelos No. exterior Mz 01
-                    No interior l 1-02005 Puerto Morelos, México, C.P. 77580
+                  <option value="Ctra. Federal Cancún Puerto Morelos No. exterior Mz 01 No interior l 1-02005 Puerto Morelos, México, C.P. 77580">
+                    Ctra. Federal Cancún Puerto Morelos No. exterior Mz 01 No
+                    interior l 1-02005 Puerto Morelos, México, C.P. 77580.
                   </option>
                 </select>
               </>
@@ -566,7 +565,7 @@ export default function ContentForm({ product, user, params }) {
                       </>
                     )}
                     {formData.cardAddress ==
-                      "Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710" && (
+                      "Ctra. Chetumal - Puerto Juárez, 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, C.P. 77780" && (
                       <>
                         <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
                           {formatTextIntoSpans(
@@ -586,7 +585,7 @@ export default function ContentForm({ product, user, params }) {
                       </>
                     )}
                     {formData.cardAddress ==
-                      "Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780" && (
+                      "Ctra Chetumal Puerto Juárez, Km 282, Quintana Roo, C.P.77710." && (
                       <>
                         <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
                           {formatTextIntoSpans(
@@ -606,11 +605,11 @@ export default function ContentForm({ product, user, params }) {
                       </>
                     )}
                     {formData.cardAddress ==
-                      "Carretera Federal Cancún Puerto Morelos No. exterior Mz 01 No interior l 1-02005 Puerto Morelos, México, C.P. 77580" && (
+                      "Ctra. Federal Cancún Puerto Morelos No. exterior Mz 01 No interior l 1-02005 Puerto Morelos, México, C.P. 77580" && (
                       <>
                         <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
                           {formatTextIntoSpans(
-                            "Carretera Federal Cancún Puerto Morelos"
+                            "Ctra. Federal Cancún Puerto Morelos"
                           )}
                         </p>
                         <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">

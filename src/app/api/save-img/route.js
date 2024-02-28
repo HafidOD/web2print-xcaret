@@ -4,6 +4,19 @@ import { writeFile } from "fs/promises";
 import path from "path";
 import fs from "fs";
 
+export async function GET(request) {
+  try {
+    return NextResponse.json({ message: "hola mundo" }, { status: 200 });
+    // return NextResponse.json({ product }, { status: 200 });
+  } catch (error) {
+    console.log(error);
+
+    return NextResponse.json(
+      { message: "Internal Error", error },
+      { status: 500 }
+    );
+  }
+}
 export async function POST(request) {
   try {
     const data = await request.json();
