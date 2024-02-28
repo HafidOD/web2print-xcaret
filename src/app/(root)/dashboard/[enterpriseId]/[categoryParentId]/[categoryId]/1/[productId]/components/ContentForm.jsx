@@ -44,6 +44,7 @@ export default function ContentForm({ product, user, params }) {
 
   // const [imageData, setImageData] = useState(null);
   const tableRef = useRef();
+  const paragraphRef = useRef(null);
 
   const handleCapture = async () => {
     const table = tableRef.current;
@@ -507,27 +508,30 @@ export default function ContentForm({ product, user, params }) {
                 <tr background="/images/marca_agua.svg" height="50%">
                   <td width="45%"></td>
                   <td width="55%">
-                    <p className="py-0 pr-5 my-0 text-sm leading-3 text-justify font-avenir-roman text-[13px]">
+                    <p
+                      className="py-0 pr-5 my-0 leading-3 text-justify font-avenir-roman text-[13px]"
+                      ref={paragraphRef}
+                    >
                       {formData.cardEmail}
                     </p>
                     <p className="leading-3">
                       {formData.cardPhone && (
-                        <span className="py-0 pr-5 my-0 text-sm leading-3 capitalize font-avenir-roman text-[13px]">
+                        <span className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
                           Tel. {formData.cardPhone}
                         </span>
                       )}
                       {formData.cardExt && (
-                        <span className="py-0 pr-5 my-0 text-sm leading-3 capitalize font-avenir-roman text-[13px]">
+                        <span className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
                           Ext. {formData.cardExt}
                         </span>
                       )}
                     </p>
                     {formData.cardPhone2 && (
-                      <p className="py-0 pr-5 my-0 text-sm leading-3 capitalize font-avenir-roman text-[13px]">
+                      <p className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
                         Cel. {formData.cardPhone2}
                       </p>
                     )}
-                    <p className="py-0 pr-5 my-0 text-sm leading-3 text-justify text-[13px] capitalize font-avenir-roman">
+                    <p className="py-0 pr-5 my-0 leading-3 text-justify text-[13px] capitalize font-avenir-roman">
                       {formData.cardAddress}
                     </p>
                   </td>

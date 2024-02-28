@@ -70,23 +70,7 @@ export default function ProductCard({
                   <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
                 </button>
               </>
-            ) : // <div className="absolute w-full px-2 button-container inset-y-1/2">
-            //   <div className="flex justify-between ">
-            //     <button
-            //       className="p-1 text-white rounded-full bg-primaryBlue"
-            //       onClick={() => handleToggleImage()}
-            //     >
-            //       <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
-            //     </button>
-            //     <button
-            //       className="p-1 text-white rounded-full bg-primaryBlue"
-            //       onClick={() => handleToggleImage()}
-            //     >
-            //       <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
-            //     </button>
-            //   </div>
-            // </div>
-            null}
+            ) : null}
           </div>
           <a href={`${params.categoryParentId}/${product.id}`}>
             <div className="flex flex-col pl-4 justify-evenly">
