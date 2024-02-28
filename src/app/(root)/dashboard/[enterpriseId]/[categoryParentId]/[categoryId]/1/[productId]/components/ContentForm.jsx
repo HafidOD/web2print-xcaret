@@ -293,7 +293,7 @@ export default function ContentForm({ product, user, params }) {
                 <input
                   name="cardEmail"
                   type="email"
-                  maxLength={27}
+                  maxLength={30}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border shadow appearance-none"
                 />
@@ -381,11 +381,11 @@ export default function ContentForm({ product, user, params }) {
                   className="w-full px-3 py-2 border shadow"
                 >
                   <option value="">Seleccionar</option>
-                  <option value="Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710">
+                  {/* <option value="Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710">
                     Ctra. Chetumal Puerto Juárez, Km 282, Municipio de
                     Solidaridad, Playa del Carmen, Quintana Roo, México,
                     C.P.77710
-                  </option>
+                  </option> */}
                   <option value="Ctra. Chetumal - Puerto Juárez 282, Rancho Xcaret, Quintana Roo, C.P.77710">
                     Ctra. Chetumal - Puerto Juárez, Km 282, Rancho Xcaret,
                     Quintana Roo, C.P.77710
@@ -393,11 +393,6 @@ export default function ContentForm({ product, user, params }) {
                   <option value="Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780">
                     Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2,
                     Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780
-                  </option>
-                  <option value="Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710">
-                    Carretera Chetumal Puerto Juárez, Km 282, Municipio de
-                    Solidaridad, Playa del Carmen, Quintana Roo, México,
-                    C.P.77710
                   </option>
                   <option value="Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710">
                     Carretera Chetumal Puerto Juárez, Km 282, Municipio de
@@ -555,9 +550,84 @@ export default function ContentForm({ product, user, params }) {
                         {formatPhoneNumber(formData.cardPhone2)}
                       </p>
                     )}
-                    <p className="py-0 pr-5 my-0 leading-[14px] text-justify text-[13px] font-avenir-roman">
+                    {formData.cardAddress ==
+                      "Ctra. Chetumal - Puerto Juárez 282, Rancho Xcaret, Quintana Roo, C.P.77710" && (
+                      <>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Ctra. Chetumal - Puerto Juárez 282,"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Rancho Xcaret, Quintana Roo, C.P.77710"
+                          )}
+                        </p>
+                      </>
+                    )}
+                    {formData.cardAddress ==
+                      "Carretera Chetumal Puerto Juárez, Km 282, Municipio de Solidaridad, Playa del Carmen, Quintana Roo, México, C.P.77710" && (
+                      <>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Carretera Chetumal Puerto Juárez, Km"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "282, Municipio de Solidaridad, Playa del"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Carmen, Quintana Roo, México, C.P.77710"
+                          )}
+                        </p>
+                      </>
+                    )}
+                    {formData.cardAddress ==
+                      "Carretera Chetumal Puerto Juárez, km 240, Locales 1 & 2, Módulo B, Xel-Há, Quintana Roo, México, C.P. 77780" && (
+                      <>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Carretera Chetumal Puerto Juárez 240,"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Locales 1 & 2, Módulo B, Xel-Há,"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Quintana Roo, México, C.P. 77780."
+                          )}
+                        </p>
+                      </>
+                    )}
+                    {formData.cardAddress ==
+                      "Carretera Federal Cancún Puerto Morelos No. exterior Mz 01 No interior l 1-02005 Puerto Morelos, México, C.P. 77580" && (
+                      <>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Carretera Federal Cancún Puerto Morelos"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "No. exterior Mz 01 No interior l 1-02005"
+                          )}
+                        </p>
+                        <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
+                          {formatTextIntoSpans(
+                            "Puerto Morelos, México, C.P. 77580."
+                          )}
+                        </p>
+                      </>
+                    )}
+                    {/* <p className="py-0 pr-5 my-0 leading-[14px] flex justify-between text-[13px] font-avenir-roman">
                       {formData.cardAddress}
-                    </p>
+                    </p> */}
                   </td>
                 </tr>
               </table>
@@ -571,7 +641,7 @@ export default function ContentForm({ product, user, params }) {
             <img src={product.imageProduct2} width={500} alt="" />
           ) : null}
           <br />
-          <p>
+          <p className="pb-5">
             Esta representación es lo mas cercano posible a la tarjeta final
           </p>
         </div>
