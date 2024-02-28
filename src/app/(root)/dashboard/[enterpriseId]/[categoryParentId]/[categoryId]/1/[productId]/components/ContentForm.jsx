@@ -101,14 +101,18 @@ export default function ContentForm({ product, user, params }) {
 
     // Lógica de formato específica para cada campo
     let formattedValue = value;
-    if (name === "cardPhone") {
-      formattedValue = formatPhoneNumber(value);
-    }
+    // if (name === "cardPhone") {
+    //   formattedValue = formatPhoneNumber(value);
+    // }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
     // console.log(dataForm);
+  };
+
+  const formatTextIntoSpans = (text) => {
+    return text.split("").map((char, index) => <span key={index}>{char}</span>);
   };
 
   const formatPhoneNumber = (phoneNumber) => {
@@ -121,10 +125,10 @@ export default function ContentForm({ product, user, params }) {
     // Si hay coincidencias, formatear el número
     if (match) {
       phoneNumber = "(" + match[1] + ") " + match[2] + " - " + match[3];
-      console.log(phoneNumber);
+      // console.log(phoneNumber);
     }
-
-    // return phoneNumber; // Devuelve el número formateado
+    const result = formatTextIntoSpans(phoneNumber);
+    return result; // Devuelve el número formateado
   };
 
   const handleSubmit = async (e) => {
@@ -353,7 +357,7 @@ export default function ContentForm({ product, user, params }) {
                 <input
                   name="cardPhone2"
                   type="text"
-                  maxLength={27}
+                  maxLength={15}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border shadow appearance-none"
                   required
@@ -509,29 +513,49 @@ export default function ContentForm({ product, user, params }) {
                   <td width="45%"></td>
                   <td width="55%">
                     <p
-                      className="py-0 pr-5 my-0 leading-3 text-justify font-avenir-roman text-[13px]"
+                      className="py-0 pr-5 my-0 leading-[14px] text-justify font-avenir-roman text-[13px] flex justify-between"
                       ref={paragraphRef}
                     >
-                      {formData.cardEmail}
+                      {/* {formData.cardEmail} */}
+                      {formatTextIntoSpans(formData.cardEmail)}
                     </p>
-                    <p className="leading-3">
+                    <p className="leading-[14px] py-0 pr-5 my-0 font-avenir-roman text-[13px] flex justify-between">
                       {formData.cardPhone && (
-                        <span className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
-                          Tel. {formData.cardPhone}
-                        </span>
+                        <>
+                          <span>T</span>
+                          <span>e</span>
+                          <span>l</span>
+                          <span>.</span>
+                          {formatPhoneNumber(formData.cardPhone)}
+                          {/* {formatTextIntoSpans(formData.cardPhone)} */}
+                        </>
                       )}
                       {formData.cardExt && (
-                        <span className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
-                          Ext. {formData.cardExt}
-                        </span>
+                        <>
+                          <span> - </span>
+                          <span>E</span>
+                          <span>x</span>
+                          <span>t</span>
+                          <span>.</span>
+                          {formatTextIntoSpans(formData.cardExt)}
+                        </>
+                        // <span className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
+                        //   Ext. {formData.cardExt}
+                        // </span>
                       )}
                     </p>
                     {formData.cardPhone2 && (
-                      <p className="py-0 pr-5 my-0 leading-3 capitalize font-avenir-roman text-[13px]">
-                        Cel. {formData.cardPhone2}
+                      <p className="py-0 pr-5 my-0 leading-[14px] font-avenir-roman text-[13px] flex justify-between">
+                        {/* Cel. {formData.cardPhone2} */}
+                        <span>C</span>
+                        <span>e</span>
+                        <span>l</span>
+                        <span>.</span>
+                        {/* {formatTextIntoSpans(formData.cardPhone2)} */}
+                        {formatPhoneNumber(formData.cardPhone2)}
                       </p>
                     )}
-                    <p className="py-0 pr-5 my-0 leading-3 text-justify text-[13px] capitalize font-avenir-roman">
+                    <p className="py-0 pr-5 my-0 leading-[14px] text-justify text-[13px] font-avenir-roman">
                       {formData.cardAddress}
                     </p>
                   </td>
