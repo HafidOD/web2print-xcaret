@@ -52,7 +52,7 @@ export default function ContentForm({ product, user, params }) {
     try {
       const canvas = await html2canvas(table);
       const dataUrl = canvas.toDataURL("image/png");
-      console.log(dataUrl);
+      // console.log(dataUrl);
       const response = await fetch(`${URL}/save-img/`, {
         method: "POST",
         headers: {
