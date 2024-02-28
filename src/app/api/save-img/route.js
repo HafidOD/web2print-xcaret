@@ -20,7 +20,7 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const data = await request.json();
-    // console.log(data);
+    console.log(data);
     const timestamp = Date.now();
     const randomString = Math.random().toString(36).substring(2, 18);
 
@@ -31,7 +31,6 @@ export async function POST(request) {
       "base64"
     );
 
-    // if (imageProduct) {
     //   const bytes = await imageProduct.arrayBuffer();
     //   const buffer = Buffer.from(bytes);
 
@@ -42,7 +41,6 @@ export async function POST(request) {
     //   );
     //   await writeFile(logoPath, buffer);
     //   pathImg = `/images/products/${imageProduct.name}`;
-    // }
 
     return NextResponse.json(
       { imageName: `${timestamp}_${randomString}.png` },

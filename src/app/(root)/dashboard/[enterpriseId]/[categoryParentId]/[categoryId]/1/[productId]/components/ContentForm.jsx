@@ -59,7 +59,7 @@ export default function ContentForm({ product, user, params }) {
         },
         body: JSON.stringify(dataUrl),
       });
-
+      console.log(response);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
