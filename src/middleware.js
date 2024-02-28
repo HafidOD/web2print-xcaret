@@ -10,10 +10,8 @@ export default withAuth(
     // let locales = ["en", "es"];
     // let defaultLocale = "en";
     if (
-      (req.nextUrl.pathname.startsWith("/en/admin") &&
-        req.nextauth.token.role !== 1) ||
-      (req.nextUrl.pathname.startsWith("/es/admin") &&
-        req.nextauth.token.role !== 1)
+      req.nextUrl.pathname.startsWith("/admin") &&
+      req.nextauth.token.role !== 1
     ) {
       return new NextResponse("No autorizado");
     }
@@ -25,15 +23,6 @@ export default withAuth(
   }
 );
 export const config = {
-  matcher: [
-    "/en/dashboard",
-    "/en/dashboard/:path*",
-    "/en/admin",
-    "/en/admin/:path*",
-    "/es/dashboard",
-    "/es/dashboard/:path*",
-    "/es/admin",
-    "/es/admin/:path*",
-  ],
+  matcher: ["/dashboard", "/dashboard/:path*", "/admin", "/admin/:path*"],
   // matcher: ["/dashboard", "/dashboard/:path*", "/app/:path*", ""],
 };

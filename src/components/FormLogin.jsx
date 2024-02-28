@@ -24,13 +24,13 @@ export default function FormLogin({ lang, paramslang }) {
         redirect: false,
         email: formValues.email,
         password: formValues.password,
-        callbackUrl: `/${paramslang}/dashboard`,
+        callbackUrl: `/dashboard`,
       });
 
       // console.log(res);
       if (!res?.error) {
         // setLoading(false);
-        router.push(`/${paramslang}/dashboard`);
+        router.push(`/dashboard`);
       } else {
         setLoading(false);
         toast.error(lang.error["invalid-email-password"]);
