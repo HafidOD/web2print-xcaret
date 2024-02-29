@@ -86,7 +86,7 @@ export async function POST(req) {
         // Agrega cada adjunto al array
         mailOptions.attachments.push({
           filename: `tarjeta_${producto.imgTarjeta}.png`,
-          path: `/var/www/web2printxcaret.gruporegio.mx/web2print-xcaret/public/images/tar/${producto.imgTarjeta}`,
+          path: `/var/www/web2printssiento.gruporegio.mx/web2print-ssiento/public/images/tar/${producto.imgTarjeta}`,
           // path: `${NEXT_URL_BASE}/images/tar/${producto.imgTarjeta}`,
           cid: producto.imgTarjeta,
         });
