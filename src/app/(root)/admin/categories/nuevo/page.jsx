@@ -110,7 +110,7 @@ function CategoryForm({ params }) {
     if (res.ok) {
       form.current.reset();
       router.refresh();
-      router.push(`/${params.lang}/admin/categories`);
+      router.push(`/admin/categories`);
     }
     if (res.status == 500 || res.status == 405) {
       toast.error(lang["es"]["error-server"]);
