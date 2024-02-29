@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import html2pdf from "html2pdf.js";
 import useCart from "@/app/hooks/use-cart";
+import { da } from "date-fns/locale";
 
 const URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -60,12 +61,13 @@ export default function ContentForm({ product, user, params }) {
         },
         body: JSON.stringify(dataUrl),
       });
-      // console.log(response);
+      // console.log(response.body);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       const res = await response.json();
+      console.log(res);
       data.imgTarjeta = res.imageName;
       // console.log(res.imageName);
     } catch (error) {
