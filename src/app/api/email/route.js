@@ -395,7 +395,6 @@ function generateEmailContent(
             ${lang.pdf["amounts-expressed"]} ${
     items.user.typePrice === 3 ? lang.pdf.dollars : lang.pdf["mexican-pesos"]
   }<br />
-  ${property.logoCala ? lang.pdf["delivery-service"] : ""}
             
           </td>
           <td style="width: 10%; border: none; padding: 8px"></td>
