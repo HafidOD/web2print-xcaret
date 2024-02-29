@@ -6,7 +6,6 @@ import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import html2pdf from "html2pdf.js";
 import useCart from "@/app/hooks/use-cart";
-import { da } from "date-fns/locale";
 
 const URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -91,22 +90,9 @@ export default function ContentForm({ product, user, params }) {
     const pdf = await html2pdf().set(options).from(element).save();
   };
 
-  // const [state, setState] = useState({
-  //   isDragging: false,
-  //   x: 500,
-  //   y: 0,
-  // });
-
   const form = useRef(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    // Lógica de formato específica para cada campo
-    let formattedValue = value;
-    // if (name === "cardPhone") {
-    //   formattedValue = formatPhoneNumber(value);
-    // }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,

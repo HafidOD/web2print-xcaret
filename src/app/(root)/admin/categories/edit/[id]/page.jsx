@@ -109,7 +109,7 @@ export default function EditCategoryPage({ params }) {
         setEnterpriseOptions(options);
       })
       .catch((error) => {
-        console.error(lang[params.lang]["error-retrieving-propierties"], error);
+        console.error(lang["es"]["error-retrieving-propierties"], error);
       });
   }, []);
 

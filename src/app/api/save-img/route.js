@@ -19,7 +19,8 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  console.log(request);
+  // console.log(request);
+
   try {
     const data = await request.json();
     // console.log(data);
