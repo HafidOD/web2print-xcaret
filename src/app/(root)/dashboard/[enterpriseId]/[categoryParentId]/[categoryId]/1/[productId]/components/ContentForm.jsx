@@ -39,6 +39,7 @@ export default function ContentForm({ product, user, params }) {
     cardAddress: "",
     cardCP: "",
     cardComments: "",
+    cardImgContent: "",
     cardQuantity: null,
   });
 
@@ -53,21 +54,26 @@ export default function ContentForm({ product, user, params }) {
       const canvas = await html2canvas(table);
       const dataUrl = canvas.toDataURL("image/png");
       // console.log(dataUrl);
-      const response = await fetch(`${URL}/save-img/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataUrl),
-      });
-      // console.log(response.body);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      // const response = await fetch(`${URL}/save-img/`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(dataUrl),
+      // });
+      // // console.log(response.body);
+      // if (!response.ok) {
+      //   throw new Error(`HTTP error! Status: ${response.status}`);
+      // }
 
-      const res = await response.json();
-      console.log(res);
-      data.imgTarjeta = res.imageName;
+      // const res = await response.json();
+      // console.log(res);
+      // data.imgTarjeta = res.imageName;
+      const timestamp = Date.now();
+      const randomString = Math.random().toString(36).substring(2, 18);
+      data.imgName = `${timestamp}_${randomString}.png`;
+      data.imgContent = dataUrl;
+      console.log(data);
       // console.log(res.imageName);
     } catch (error) {
       console.error("Error:", error);

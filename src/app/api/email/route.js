@@ -7,7 +7,7 @@ import { getDictionary } from "@/utils/dictionary";
 
 export async function POST(req) {
   const items = await req.json();
-  // console.log(items);
+  console.log(items);
   const property = await prisma.property.findFirst({
     where: {
       propertyName: items.user.property,
@@ -77,18 +77,32 @@ export async function POST(req) {
       html: emailContent,
       attachments: [],
     };
-    items.items.forEach((producto) => {
+    items.items.forEach(async (producto) => {
       if (
         producto.categories.some(
           (categoria) => categoria.categoryName === "Tarjetas"
         )
       ) {
+        // const base64Data = await producto.imgContent.replace(
+        //   /^data:image\/png;base64,/,
+        //   ""
+        // );
+        // const buffer = Buffer.from(base64Data, "base64");
+        const imageBuffer = Buffer.from(
+          producto.imgContent.split(",")[1],
+          "base64"
+        );
+
         // Agrega cada adjunto al array
         mailOptions.attachments.push({
-          filename: `tarjeta_${producto.imgTarjeta}.png`,
-          path: `/var/www/web2printxcaret.gruporegio.mx/web2print-xcaret/public/images/tar/${producto.imgTarjeta}`,
+          filename: `tarjeta_${producto.imgName}`,
+          content: imageBuffer,
+          encoding: "base64",
+
+          // content: buffer,
+          // path: `/var/www/web2printxcaret.gruporegio.mx/web2print-xcaret/public/images/tar/${producto.imgTarjeta}`,
           // path: `${NEXT_URL_BASE}/images/tar/${producto.imgTarjeta}`,
-          cid: producto.imgTarjeta,
+          // cid: producto.imgTarjeta,
         });
       }
     });
@@ -103,12 +117,13 @@ export async function POST(req) {
     //     html: emailContent,
     //   };
     // }
+
+    const info = await transporter.sendMail(mailOptions);
+    // console.log("Email sent: " + info.response);
     // return NextResponse.json(
     //   { message: "ok", sale, property },
     //   { status: 500 }
     // );
-    const info = await transporter.sendMail(mailOptions);
-    // console.log("Email sent: " + info.response);
     return NextResponse.json(
       { message: "email enviado", sale, property },
       { status: 200 }
