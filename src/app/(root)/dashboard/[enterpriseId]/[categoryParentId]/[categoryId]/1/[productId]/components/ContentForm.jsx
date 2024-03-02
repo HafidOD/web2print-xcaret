@@ -37,7 +37,6 @@ export default function ContentForm({ product, user, params }) {
     cardExt: "",
     cardPhone2: "",
     cardAddress: "",
-    cardCP: "",
     cardComments: "",
     cardImgContent: "",
     cardQuantity: null,

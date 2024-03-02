@@ -66,7 +66,7 @@ export default async function AddressPage({ params }) {
       </div>
       <div className="flex justify-center">
         <Link
-          href={`/dashboard/checkout`}
+          href={`/dashboard/entrega`}
           className="w-full text-white bg-primaryBlue rounded-lg text-md px-5 py-2.5 text-center font-bold"
         >
           {lang.products["proceed-checkout"]}

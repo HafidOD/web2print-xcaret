@@ -2,14 +2,16 @@
 
 import useAddress from "@/app/hooks/use-address";
 import useCart from "@/app/hooks/use-cart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ExButt({ user, lang, paramslang }) {
   const [loading, setLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   // console.log(user);
   const items = useCart((state) => state.items);
   const address = useAddress((state) => state.address);
-  // console.log(address);
+  const additionalInfo = useAddress((state) => state.additionalInfo);
+  // console.log(additionalInfo);
   const handleClick = async () => {
     // console.log(items);
     // Llama a la función para enviar el email con los detalles del pedido
@@ -20,7 +22,7 @@ export default function ExButt({ user, lang, paramslang }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ items, user: user, address, lang }),
+        body: JSON.stringify({ items, user, address, additionalInfo, lang }),
       });
       // console.log(response);
       // const data = await response.json();
@@ -42,6 +44,13 @@ export default function ExButt({ user, lang, paramslang }) {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
   // console.log(!!items.length);
   return (
     <>

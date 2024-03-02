@@ -4,6 +4,8 @@ import SalePdf from "./SalePdf";
 
 export default function ButtonPdf({ sale, items, address, lang }) {
   // console.log(sale);
+  // console.log(items);
+  // console.log(items.additionalInfo);
   return (
     <>
       <PDFDownloadLink
@@ -12,6 +14,7 @@ export default function ButtonPdf({ sale, items, address, lang }) {
             sale={sale}
             items={items.items}
             address={address}
+            additionalInfo={items.additionalInfo}
             lang={lang}
           />
         }

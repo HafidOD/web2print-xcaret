@@ -5,11 +5,18 @@ const useAddress = create(
   persist(
     (set, get) => ({
       address: {},
+      additionalInfo: {},
       addAddress: (address) => {
         set({ address });
       },
 
       removeAddress: () => set({ address: {} }),
+
+      addAdditionalInfo: (additionalInfo) => {
+        set({ additionalInfo });
+      },
+
+      removeAdditionalInfo: () => set({ additionalInfo: {} }),
     }),
     {
       name: "address-storage",

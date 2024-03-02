@@ -9,9 +9,9 @@ import {
   Image,
 } from "@react-pdf/renderer";
 import { format } from "date-fns";
-const SalePdf = ({ sale, items, address, lang }) => {
+const SalePdf = ({ sale, items, address, additionalInfo, lang }) => {
   const fecha = format(new Date(sale.date), "dd/MM/yyyy");
-  // console.log(sale);
+  // console.log(additionalInfo);
   // console.log(sale.user.property);
   // Tasa de IVA (porcentaje)
   const tasaIVA = 16; // Cambia esto según la tasa de IVA de pais
@@ -110,6 +110,16 @@ const SalePdf = ({ sale, items, address, lang }) => {
     },
     tableColHeader85: {
       width: "85%",
+      borderStyle: "solid",
+      borderBottomColor: "#000",
+      borderBottomWidth: 1,
+      borderRightWidth: 1,
+      padding: 5,
+      fontSize: "10pt",
+      fontWeight: "bold",
+    },
+    tableColText80: {
+      width: "80%",
       borderStyle: "solid",
       borderBottomColor: "#000",
       borderBottomWidth: 1,
@@ -545,6 +555,26 @@ const SalePdf = ({ sale, items, address, lang }) => {
                 <Text>{sale.user.email}</Text>
               </View>
             </View>
+            {additionalInfo && (
+              <View>
+                <View style={styles.tableRow}>
+                  <View style={styles.tableColHeader15}>
+                    <Text>Entregar a:</Text>
+                  </View>
+                  <View style={styles.tableColHeader85}>
+                    <Text>{additionalInfo.attentionName}</Text>
+                  </View>
+                </View>
+                <View style={styles.tableRow}>
+                  <View style={styles.tableColHeader15}>
+                    <Text>Comentarios:</Text>
+                  </View>
+                  <View style={styles.tableColHeader85}>
+                    <Text>{additionalInfo.commentsShipping}</Text>
+                  </View>
+                </View>
+              </View>
+            )}
           </View>
           <Text>{"\n"}</Text>
           <View style={styles.table}>
@@ -605,35 +635,64 @@ const SalePdf = ({ sale, items, address, lang }) => {
               </View>
             </View>
             {items.map((producto) => (
-              <View key={producto.id} style={styles.tableRow}>
-                <View style={styles.tableColHeader20}>
-                  <Text>{producto.sku}</Text>
+              <View key={producto.id}>
+                <View style={styles.tableRow}>
+                  <View style={styles.tableColHeader20}>
+                    <Text>{producto.sku}</Text>
+                  </View>
+                  <View style={styles.tableColHeader40}>
+                    <Text>{producto.nameProduct}</Text>
+                  </View>
+                  <View style={styles.tableColHeader10}>
+                    <Text>CS {producto.unitsPackage}</Text>
+                  </View>
+                  <View
+                    style={Object.assign(
+                      {},
+                      styles.tableColHeader10,
+                      styles.right
+                    )}
+                  >
+                    <Text>{producto.quantity}</Text>
+                  </View>
+                  <View style={styles.tableColHeader10}>
+                    <Text>
+                      {producto.price != 0 ? "$" + producto.price : ""}
+                    </Text>
+                  </View>
+                  <View style={styles.tableColHeader10}>
+                    <Text>
+                      {producto.price != 0
+                        ? "$" + producto.price * producto.quantity
+                        : ""}
+                    </Text>
+                  </View>
                 </View>
-                <View style={styles.tableColHeader40}>
-                  <Text>{producto.nameProduct}</Text>
-                </View>
-                <View style={styles.tableColHeader10}>
-                  <Text>CS {producto.unitsPackage}</Text>
-                </View>
-                <View
-                  style={Object.assign(
-                    {},
-                    styles.tableColHeader10,
-                    styles.right
-                  )}
-                >
-                  <Text>{producto.quantity}</Text>
-                </View>
-                <View style={styles.tableColHeader10}>
-                  <Text>{producto.price != 0 ? "$" + producto.price : ""}</Text>
-                </View>
-                <View style={styles.tableColHeader10}>
-                  <Text>
-                    {producto.price != 0
-                      ? "$" + producto.price * producto.quantity
-                      : ""}
-                  </Text>
-                </View>
+                {producto.categories.some(
+                  (categoria) => categoria.categoryName === "Tarjetas"
+                ) && (
+                  <View style={styles.tableRow}>
+                    <View style={styles.tableColHeader20}>
+                      <Text>Datos de tarjeta:</Text>
+                    </View>
+                    <View style={styles.tableColText80}>
+                      <Text>Nombre: {producto.formData.cardName}</Text>
+                      <Text>Cargo: {producto.formData.position}</Text>
+                      <Text>Cargo 2: {producto.formData.position2}</Text>
+                      <Text>Cargo 3: {producto.formData.position3}</Text>
+                      <Text>Email: {producto.formData.cardEmail}</Text>
+                      <Text>
+                        Teléfono: {producto.formData.cardPhone}{" "}
+                        {producto.formData.cardExt != null
+                          ? "Ext:" + producto.formData.cardExt
+                          : null}
+                      </Text>
+                      <Text>Movil: {producto.formData.cardPhone2}</Text>
+                      <Text>Dirección: {producto.formData.cardAddress}</Text>
+                      <Text>Comentarios: {producto.formData.cardComments}</Text>
+                    </View>
+                  </View>
+                )}
               </View>
             ))}
             {address.price && (
@@ -729,17 +788,7 @@ const SalePdf = ({ sale, items, address, lang }) => {
                 <View style={styles.tableHeader15}>
                   <Text>w: gruporegio.mx</Text>
                 </View>
-                <View style={styles.tableHeader20}>
-                  {/* {sale.user.property.propertyName == "Vontobel" ? (
-                    ""
-                  ) : (
-                    <Image
-                      src={"/images/logos/Logo-CALA.png"}
-                      style={styles.imagecala}
-                      alt="logo cala"
-                    />
-                  )} */}
-                </View>
+                <View style={styles.tableHeader20}></View>
                 <View style={styles.tableHeader15}>
                   <Image
                     src={"/images/logos/fsc.png"}

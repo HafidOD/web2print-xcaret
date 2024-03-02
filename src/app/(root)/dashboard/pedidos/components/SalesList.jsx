@@ -11,7 +11,7 @@ export default async function SalesList({ sale, address, paramslang }) {
   address = JSON.parse(address);
   // console.log(sale);
   const items = JSON.parse(sale.data);
-  // console.log(items.items[0].currency);
+  // console.log(items);
   const currency = items.items[0].currency;
   const totalItems = items.items.length;
   const fecha = format(new Date(sale.date), "dd-MM-yyyy");

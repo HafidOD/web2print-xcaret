@@ -7,7 +7,8 @@ import { getDictionary } from "@/utils/dictionary";
 
 export async function POST(req) {
   const items = await req.json();
-  console.log(items);
+  // console.log(items);
+  console.log(items.additionalInfo);
   const property = await prisma.property.findFirst({
     where: {
       propertyName: items.user.property,
@@ -117,7 +118,10 @@ export async function POST(req) {
     //     html: emailContent,
     //   };
     // }
-
+    // return NextResponse.json(
+    //   { message: "ok", sale, property },
+    //   { status: 500 }
+    // );
     const info = await transporter.sendMail(mailOptions);
     // console.log("Email sent: " + info.response);
     // return NextResponse.json(
@@ -341,6 +345,50 @@ function generateEmailContent(
             ${items.user.email}
           </td>
         </tr>
+        <tr>
+          <td
+            style="
+              width: 15%;
+              border: solid 1px;
+              border-top: none;
+              padding: 8px;
+            "
+          >
+            Entrega a:
+          </td>
+          <td
+            style="
+              width: 85%;
+              border: solid 1px;
+              border-top: none;
+              padding: 8px;
+            "
+          >
+            ${items.additionalInfo.attentionName}
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 15%;
+              border: solid 1px;
+              border-top: none;
+              padding: 8px;
+            "
+          >
+            Comentarios:
+          </td>
+          <td
+            style="
+              width: 85%;
+              border: solid 1px;
+              border-top: none;
+              padding: 8px;
+            "
+          >
+            ${items.additionalInfo.commentsShipping}
+          </td>
+        </tr>
       </tbody>
     </table>
     <br />`;
@@ -380,15 +428,21 @@ function generateEmailContent(
           Información de tarjeta
         </td>
         <td style='padding:2px 10px;border: solid 1px;'>
-          <p style='margin:0;'>${producto.formData.cardName}</p>
-          <p style='margin:0;'>${producto.formData.position}</p>
-          <p style='margin:0;'>${producto.formData.position2}</p>
-          <p style='margin:0;'>${producto.formData.position3}</p>
-          <p style='margin:0;'>${producto.formData.cardEmail}</p>
-          <p style='margin:0;'>${producto.formData.cardPhone}</p>
-          <p style='margin:0;'>${producto.formData.cardPhone2}</p>
-          <p style='margin:0;'>${producto.formData.cardAddress} ${producto.formData.cardCP}</p>
-          <p style='margin:0;'>${producto.formData.cardComments}</p>
+          <p style='margin:0;'>Nombre: ${producto.formData.cardName}</p>
+          <p style='margin:0;'>Cargo: ${producto.formData.position}</p>
+          <p style='margin:0;'>Cargo 2: ${producto.formData.position2}</p>
+          <p style='margin:0;'>Cargo 3: ${producto.formData.position3}</p>
+          <p style='margin:0;'>Email: ${producto.formData.cardEmail}</p>
+          <p style='margin:0;'>Tel:${producto.formData.cardPhone} ${
+        producto.formData.cardExt != null
+          ? "Ext." + producto.formData.cardExt
+          : null
+      }</p>
+          <p style='margin:0;'>Cel: ${producto.formData.cardPhone2}</p>
+          <p style='margin:0;'>Dirección: ${producto.formData.cardAddress} </p>
+          <p style='margin:0;'>Comentarios: ${
+            producto.formData.cardComments
+          }</p>
         </td>
       </tr>`;
     }

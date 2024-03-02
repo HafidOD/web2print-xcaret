@@ -17,10 +17,11 @@ export default async function pagePublicPDF({ params }) {
   // console.log(sale);
   const items = JSON.parse(sale.data);
   const address = JSON.parse(sale.address);
+  // const additionalInfo = JSON.parse(sale.additionalInfo);
   const currency = items.items[0].currency;
-  // console.log(items.items);
+
   // console.log(address);
-  // console.log(sale);
+  // console.log(address);
   return (
     <div>
       <div>
