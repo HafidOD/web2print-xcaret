@@ -17,7 +17,7 @@ export default function SummaryAddress({ paramslang }) {
   // } else {
   //   console.log("El objeto no está vacío");
   // }
-  // console.log(address);
+  // console.log(address == null);
   return (
     <div>
       {Object.keys(address).length === 0 ? (

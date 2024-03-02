@@ -73,7 +73,6 @@ export default function ContentForm({ product, user, params }) {
       const randomString = Math.random().toString(36).substring(2, 18);
       data.imgName = `${timestamp}_${randomString}.png`;
       data.imgContent = dataUrl;
-      console.log(data);
       // console.log(res.imageName);
     } catch (error) {
       console.error("Error:", error);
@@ -169,7 +168,7 @@ export default function ContentForm({ product, user, params }) {
     }
     data.quantity = formData.cardQuantity;
     data.formData = formData;
-    data.total = data.price;
+    data.total = data.price * data.quantity;
     cart.addItem(data);
     setAddItem(true);
     // window.location.href = `/${lang}/dashboard/thankyou?saleId=${data.sale.id}&email=${primaryEmail}`;

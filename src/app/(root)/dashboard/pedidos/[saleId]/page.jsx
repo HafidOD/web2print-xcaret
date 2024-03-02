@@ -15,7 +15,7 @@ export async function fetchSingleSales(saleId) {
 
 export default async function SingleSale({ params }) {
   // console.log(params.saleId);
-  const lang = await getDictionary(params.lang);
+  const lang = await getDictionary("es");
   const sale = await fetchSingleSales(params.saleId);
   // console.log(sale);
   const items = JSON.parse(sale.data);

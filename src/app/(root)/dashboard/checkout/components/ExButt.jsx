@@ -42,18 +42,22 @@ export default function ExButt({ user, lang, paramslang }) {
       setLoading(false);
     }
   };
-  // console.log(items);
+  // console.log(!!items.length);
   return (
-    <button
-      // href={`/dashboard/thankyou`}
-      onClick={handleClick}
-      style={{ backgroundColor: `${loading ? "#ccc" : "#193761"}` }}
-      className="w-full text-white bg-primaryBlue font-bold rounded-lg text-md px-5 py-2.5 text-center"
-      disabled={loading}
-    >
-      {loading
-        ? `${paramslang.products["placing-order"]}`
-        : `${paramslang.products["place-order"]}`}
-    </button>
+    <>
+      {!!items.length && (
+        <button
+          // href={`/dashboard/thankyou`}
+          onClick={handleClick}
+          style={{ backgroundColor: `${loading ? "#ccc" : "#193761"}` }}
+          className="w-full text-white bg-primaryBlue font-bold rounded-lg text-md px-5 py-2.5 text-center"
+          disabled={loading}
+        >
+          {loading
+            ? `${paramslang.products["placing-order"]}`
+            : `${paramslang.products["place-order"]}`}
+        </button>
+      )}
+    </>
   );
 }

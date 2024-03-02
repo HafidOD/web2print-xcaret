@@ -30,7 +30,7 @@ export default function ThankyouPage({ params }) {
   const searchParams = useSearchParams();
   const saleId = searchParams.get("saleId");
   const primaryEmail = searchParams.get("email");
-  console.log(primaryEmail);
+  // console.log(primaryEmail);
   // const cart = useCart();
   const removeAll = useCart((state) => state.removeAll);
   const removeAddress = useAddress((state) => state.removeAddress);

@@ -21,7 +21,7 @@ export default async function SalesList({ sale, address, paramslang }) {
   // console.log(items.items.length);
   return (
     <li className="py-3">
-      <Link href={`/${paramslang}/dashboard/pedidos/${sale.id}`}>
+      <Link href={`/dashboard/pedidos/${sale.id}`}>
         <div className="md:grid md:grid-cols-6">
           <div className="flex items-center justify-center col-span-1">
             <div className="">

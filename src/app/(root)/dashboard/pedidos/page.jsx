@@ -14,7 +14,7 @@ export async function fetchSales(userId) {
 }
 
 export default async function pagePedidos({ params }) {
-  const lang = await getDictionary(params.lang);
+  const lang = await getDictionary("es");
   const { user } = await getServerSession(authOptions);
 
   const sales = await fetchSales(user.id);
@@ -36,7 +36,7 @@ export default async function pagePedidos({ params }) {
               key={sale.id}
               sale={sale}
               address={sale.address}
-              paramslang={params.lang}
+              paramslang={"es"}
             ></SalesList>
           ))}
         </ul>
