@@ -124,7 +124,7 @@ export default function NavbarAdmin({ lang, langparam }) {
                     onClick={() =>
                       signOut({ redirect: false }).then(() => {
                         window.location.href =
-                          "https://web2print.gruporegio.mx/";
+                          "https://web2printxcaret.gruporegio.mx/";
                       })
                     }
                     type="button"

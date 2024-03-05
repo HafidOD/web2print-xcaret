@@ -69,7 +69,7 @@ function ProductForm({ params }) {
     priceLocal: null,
     priceNacional: null,
     priceExt: null,
-    descriptionProduct: null,
+    descriptionProduct: "",
     stockProduct: null,
     unitsPackage: null,
     published: true,
